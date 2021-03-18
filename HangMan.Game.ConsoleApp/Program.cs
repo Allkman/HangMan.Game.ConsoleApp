@@ -5,7 +5,7 @@ namespace HangMan.Game.ConsoleApp
 {
     class Program
     {
-        const string topicNames = "NNAMES";
+        const string topicNames = "NAMES";
         const string topicCities = "CITIES IN LITHUANIA";
         const string topicCountries = "COUNTRIES";
         const string topicFurnitures = "FURNITURE";
@@ -22,6 +22,7 @@ namespace HangMan.Game.ConsoleApp
         {
             //TODO 1. Create a method bellow to display Topics selection. Enter number 1-4.
             TopicSelection();
+            //DisplayTopicNames();
             //TODO 2. After Topic was selected, pick a word from a List randomly
             //TODO 3 Display UI elements for a game
             //TODO 3a. Allow user to enter letters.
@@ -31,11 +32,22 @@ namespace HangMan.Game.ConsoleApp
             //TODO 3e. Place correctly guessed letter into a UI: _ _ _ _ _ A _.
             //TODO 4. If when the word guess
             //TODO
+
+            Console.ReadKey();
         }
-        //TODO Game mechanics
+        //TODO Game mechanics
+        //TODO I - Show Topics and let user select topic from list of topics
+        static void DisplayTopicNames()
+        {
+            for (int i = 1; i <= topics.Count; i++)
+            {
+                Console.WriteLine("\n- {0} Topic: = {1}",i, topics[i -1 ]);            
+            }
+        }
         static void TopicSelection()
         {
             Console.WriteLine("Choose one of the following topics: ");
+            DisplayTopicNames();
             var topicNumber = 0;
             do
             {
@@ -47,30 +59,31 @@ namespace HangMan.Game.ConsoleApp
                 Console.WriteLine("Please enter a correct number");
             }
             while (true);
-            
-
-           
-            
-            //TODO I - Show Topics and let user select topic from list of topics
         }
 
-        //TODO II. A Method to get randomly selected word
-        //TODO III. A Method
-        //TODO IV. A Method to place Words based on their Topic into a Dictionary. For Word that havent beed used yet.
-        //TODO V. A Method to place used word into a List
-        //TODO VI. A Method to create UI to display Word guessing field. (String builder)
-        //TODO VII. A Method to let write  a Letter
-        //TODO VIII. A Method to check if a given word has a letter.
-        //TOTO IX. A Method to place written letter into a correct place in a given word 
-        //TODO X. A Method to display all wrongly guessed letter.
-        //TODO XI. A Method to check if a word was guessed.
-        //TODO XII. A Method to display WIN message (+ a word)
+
+        //TODO II. A Method to get randomly selected word
+        static string SelectWordRandomly(string topic)
+        {
+            return topic;
+        }
+
+        //TODO III. A Method
+        //TODO IV. A Method to place Words based on their Topic into a Dictionary. For Word that havent beed used yet.
+        //TODO V. A Method to place used word into a List
+        //TODO VI. A Method to create UI to display Word guessing field. (String builder)
+        //TODO VII. A Method to let write  a Letter
+        //TODO VIII. A Method to check if a given word has a letter.
+        //TOTO IX. A Method to place written letter into a correct place in a given word 
+        //TODO X. A Method to display all wrongly guessed letter.
+        //TODO XI. A Method to check if a word was guessed.
+        //TODO XII. A Method to display WIN message (+ a word)
 
 
 
 
-        //TOTO XIII. A Method to select Hangman UI + UI elements                                                               +DONE
-        static void HangerPictureSelection(List<string> incorrectGuesses)
+        //TOTO XIII. A Method to select Hangman UI + UI elements                                                               +DONE
+        static void HangerPictureSelection(List<string> incorrectGuesses)
         {
             Console.Clear();
             switch (incorrectGuesses.Count)
