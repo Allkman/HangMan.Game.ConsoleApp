@@ -67,6 +67,7 @@ namespace HangMan.Game.ConsoleApp
         }
         
         //TODO II. A Method to get randomly selected word
+        //spejamas Zodis = SelectWordsRandomly
         static string SelectWordsRandomly(List<string> wordsList)
         {
             var rnd = new Random();
@@ -81,8 +82,11 @@ namespace HangMan.Game.ConsoleApp
             var sb = new StringBuilder("WORD: ");
             foreach (var letter in correctGuesses)
             {
-                if(letter)sb.Append("_ ");
+                if (string.IsNullOrWhiteSpace(letter)) sb.Append("_ ");
+                else sb.Append($"{letter} ");
             }
+            var result = sb.ToString();
+            Console.WriteLine(result);
         }
 
         //TODO III. A Method
