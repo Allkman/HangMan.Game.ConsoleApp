@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace HangMan.Game.ConsoleApp
 {
@@ -22,7 +23,10 @@ namespace HangMan.Game.ConsoleApp
         {
             //TODO 1. Create a method bellow to display Topics selection. Enter number 1-4.
             TopicSelection();
-            //DisplayTopicNames();
+            Console.WriteLine();
+            Console.Clear();
+            StartingPicture();
+            
             //TODO 2. After Topic was selected, pick a word from a List randomly
             //TODO 3 Display UI elements for a game
             //TODO 3a. Allow user to enter letters.
@@ -41,8 +45,9 @@ namespace HangMan.Game.ConsoleApp
         {
             for (int i = 1; i <= topics.Count; i++)
             {
-                Console.WriteLine("\n- {0} Topic: = {1}",i, topics[i -1 ]);            
+                Console.Write("\n Topic - {0}: = {1}", i, topics[i -1 ]);            
             }
+            Console.WriteLine();
         }
         static void TopicSelection()
         {
@@ -56,16 +61,28 @@ namespace HangMan.Game.ConsoleApp
                     
                     break;
                 }
-                Console.WriteLine("Please enter a correct number");
+                Console.WriteLine("Please enter a number representing a topic number");
             }
             while (true);
         }
-
-
+        
         //TODO II. A Method to get randomly selected word
-        static string SelectWordRandomly(string topic)
+        static string SelectWordsRandomly(List<string> wordsList)
         {
-            return topic;
+            var rnd = new Random();
+            var randomSelect = rnd.Next(0, wordsList.Count);           
+            
+            return wordsList[randomSelect];
+        }
+
+        static void WordGuessField(string[] correctGuesses)
+        {
+            Console.WriteLine();
+            var sb = new StringBuilder("WORD: ");
+            foreach (var letter in correctGuesses)
+            {
+                if(letter)sb.Append("_ ");
+            }
         }
 
         //TODO III. A Method
