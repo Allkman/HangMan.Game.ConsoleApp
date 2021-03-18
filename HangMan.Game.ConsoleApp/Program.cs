@@ -16,11 +16,12 @@ namespace HangMan.Game.ConsoleApp
         readonly static List<string> cities = new List<string> { "Vilnius", "Klaipeda", "Ukmerge", "Taurage", "Alytus", "Palanga", "Utena", "Varena", "Kaunas", "Raseiniai" };
         readonly static List<string> countries = new List<string> { "Kinija", "Prancuzija", "Estija", "Norvegija", "Taivanas", "Indija", "Meksika", "Suomija", "Argentina", "Portugalija" };
         readonly static List<string> furniture = new List<string> { "Stalas", "Kede", "Spinta", "Lova", "Suolas", "Sofa", "Lempa", "Durys", "Kilimas", "Veidrodis" };
-        //panaudotus žodžius dėti į atskirą žodyną tam tam kad jie nebesikartotų paduodant naują žodį
+        //Dictionary for used words so they wont repeat when replaying
         static Dictionary<string, List<string>> usedWords = new Dictionary<string, List<string>>();
         static void Main(string[] args)
         {
             //TODO 1. Create a method bellow to display Topics selection. Enter number 1-4.
+            TopicSelection();
             //TODO 2. After Topic was selected, pick a word from a List randomly
             //TODO 3 Display UI elements for a game
             //TODO 3a. Allow user to enter letters.
@@ -34,11 +35,21 @@ namespace HangMan.Game.ConsoleApp
         //TODO Game mechanics
         static void TopicSelection()
         {
-
-            while (true)
+            Console.WriteLine("Choose one of the following topics: ");
+            var topicNumber = 0;
+            do
             {
-
+                if (int.TryParse(Console.ReadLine(), out topicNumber) && topicNumber >= 1 && topicNumber <= 4)
+                {
+                    
+                    break;
+                }
+                Console.WriteLine("Please enter a correct number");
             }
+            while (true);
+            
+
+           
             
             //TODO I - Show Topics and let user select topic from list of topics
         }
