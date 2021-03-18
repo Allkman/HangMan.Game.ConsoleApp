@@ -5,19 +5,19 @@ namespace HangMan.Game.ConsoleApp
 {
     class Program
     {
-        const string temaVardai = "VARDAI";
-        const string temaMiestai = "LIETUVOS MIESTAI";
-        const string temaValstybes = "VALSTYBES";
-        const string temaBaldai = "BALDAI";
-        const int gyvybiuKiekis = 7;
+        const string topicNames = "NNAMES";
+        const string topicCities = "CITIES IN LITHUANIA";
+        const string topicCountries = "COUNTRIES";
+        const string topicFurnitures = "FURNITURE";
+        const int numberOfAttempts = 7;
 
-        readonly static List<string> temos = new List<string> { temaVardai, temaMiestai, temaValstybes, temaBaldai };
-        readonly static List<string> vardai = new List<string> { "Mindaugas", "Gediminas", "Vytautas", "Kestutis", "Algirdas", "Žygimantas", "Birute", "Barbora", "Augustas", "Morta" };
-        readonly static List<string> miestai = new List<string> { "Vilnius", "Klaipeda", "Ukmerge", "Taurage", "Alytus", "Palanga", "Utena", "Varena", "Kaunas", "Raseiniai" };
-        readonly static List<string> valstybes = new List<string> { "Kinija", "Prancuzija", "Estija", "Norvegija", "Taivanas", "Indija", "Meksika", "Suomija", "Argentina", "Portugalija" };
-        readonly static List<string> baldai = new List<string> { "Stalas", "Kede", "Spinta", "Lova", "Suolas", "Sofa", "Lempa", "Durys", "Kilimas", "Veidrodis" };
+        readonly static List<string> topics = new List<string> { topicNames, topicCities, topicCountries, topicFurnitures };
+        readonly static List<string> names = new List<string> { "Mindaugas", "Gediminas", "Vytautas", "Kestutis", "Algirdas", "Žygimantas", "Birute", "Barbora", "Augustas", "Morta" };
+        readonly static List<string> cities = new List<string> { "Vilnius", "Klaipeda", "Ukmerge", "Taurage", "Alytus", "Palanga", "Utena", "Varena", "Kaunas", "Raseiniai" };
+        readonly static List<string> countries = new List<string> { "Kinija", "Prancuzija", "Estija", "Norvegija", "Taivanas", "Indija", "Meksika", "Suomija", "Argentina", "Portugalija" };
+        readonly static List<string> furniture = new List<string> { "Stalas", "Kede", "Spinta", "Lova", "Suolas", "Sofa", "Lempa", "Durys", "Kilimas", "Veidrodis" };
         //panaudotus žodžius dėti į atskirą žodyną tam tam kad jie nebesikartotų paduodant naują žodį
-        static Dictionary<string, List<string>> panaudotiZodziai = new Dictionary<string, List<string>>();
+        static Dictionary<string, List<string>> usedWords = new Dictionary<string, List<string>>();
         static void Main(string[] args)
         {
             //TODO 1. Create a method bellow to display Topics selection. Enter number 1-4.
@@ -34,7 +34,13 @@ namespace HangMan.Game.ConsoleApp
         //TODO Game mechanics
         static void TopicSelection()
         {
-            //TODO I - Show Topics and let user select topic from list of topics
+
+            while (true)
+            {
+
+            }
+            
+            //TODO I - Show Topics and let user select topic from list of topics
         }
 
         //TODO II. A Method to get randomly selected word
@@ -81,7 +87,7 @@ namespace HangMan.Game.ConsoleApp
                     break;
             }
         }
-        #region Piesiniai
+        #region Drawings
         static void StartingPicture()
         {
             Console.WriteLine(@"   ---------|    ");
