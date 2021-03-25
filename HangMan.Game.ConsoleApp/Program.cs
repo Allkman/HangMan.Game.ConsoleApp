@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HangMan.Game.ConsoleApp
 {
@@ -85,8 +86,11 @@ namespace HangMan.Game.ConsoleApp
         }
         static string RandomWordGenerator(string topic, List<KeyValuePair<string, string>> kvpOfAllWords)
         {
+            var newShortKVPList = new List<KeyValuePair<string, string>>();
             var wordFromKVP = new KeyValuePair<string, string>();
+
             var rnd = new Random();
+
             foreach (var kvp in kvpOfAllWords)
             {
                 if (kvp.Key == topic)
@@ -95,7 +99,10 @@ namespace HangMan.Game.ConsoleApp
                     Console.WriteLine($"kvp is = {kvp}"); //Display all pairs from selected topic (in this case 10)
                 }
             }
-            return wordFromKVP.Value;
+            newShortKVPList.Add(wordFromKVP);
+            var rndNumber = rnd.Next(0, newShortKVPList.Count);
+
+            return newShortKVPList;
         }
         static List<KeyValuePair<string, string>> GetKVPOfAllWords(List<KeyValuePair<string, string>> kvpOfAllWords)
         {
