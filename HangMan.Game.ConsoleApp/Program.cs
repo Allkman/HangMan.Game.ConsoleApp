@@ -36,7 +36,6 @@ namespace HangMan.Game.ConsoleApp
         static void Main(string[] args)
         {
             HangMan();
-
         }
         static void HangMan()
         {
@@ -86,7 +85,7 @@ namespace HangMan.Game.ConsoleApp
         }
         static string RandomWordGenerator(string topic, List<KeyValuePair<string, string>> kvpOfAllWords)
         {
-            var newShortKVPList = new List<KeyValuePair<string, string>>();
+            var newShortKVPList = new List<string>();
             var wordFromKVP = new KeyValuePair<string, string>();
 
             var rnd = new Random();
@@ -96,13 +95,15 @@ namespace HangMan.Game.ConsoleApp
                 if (kvp.Key == topic)
                 {
                     wordFromKVP = kvp;
-                    Console.WriteLine($"kvp is = {kvp}"); //Display all pairs from selected topic (in this case 10)
+                    //Console.WriteLine($"kvp is = {kvp}"); //Display all pairs from selected topic (in this case 10)
                 }
             }
-            newShortKVPList.Add(wordFromKVP);
-            var rndNumber = rnd.Next(0, newShortKVPList.Count);
+            newShortKVPList.Add(wordFromKVP.Value); //I took only value from kvp!
 
-            return newShortKVPList;
+            var rndNumber = rnd.Next(newShortKVPList.Count);         
+        
+
+            return newShortKVPList[rndNumber];
         }
         static List<KeyValuePair<string, string>> GetKVPOfAllWords(List<KeyValuePair<string, string>> kvpOfAllWords)
         {
